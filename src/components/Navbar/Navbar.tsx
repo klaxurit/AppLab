@@ -1,8 +1,11 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
+// import { useChain } from "@cosmos-kit/react";
 import { closeSidebar } from "../../store/helpSlice";
+import { useWalletClient } from "@cosmos-kit/react";
 
 const Navbar: React.FC = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.help.isSidebarOpen);
@@ -11,6 +14,18 @@ const Navbar: React.FC = () => {
   const handleCloseSidebar = () => {
     dispatch(closeSidebar());
   };
+  const { status, client } = useWalletClient("keplr-extension");
+
+  useEffect(() => {
+    console.log(status, client)
+    if (status === "Done") {
+      client?.enable?.(["cosmoshub-4", "osmosis-1", "juno-1"]);
+      client?.getAccount?.("juno-4").then((account) => console.log(account));
+      client?.getAccount?.("osmosis-1").then((account) => console.log(account));
+      client?.getAccount?.("cosmoshub-4")
+        .then((account) => console.log(account));
+    }
+  }, [status]);
 
   return (
     <div className={`Navbar ${isSidebarOpen ? 'Navbar--shrink' : ''}`}>
