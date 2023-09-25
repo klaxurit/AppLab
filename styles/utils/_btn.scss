@@ -1,0 +1,137 @@
+.btn {
+  &__primary {
+    cursor: pointer;
+    background: $primary-light ;
+    color: white;
+    font-weight: 600;
+
+    &:focus-visible {
+      background: $primary-pure;
+      border: 1px solid $primary-light;
+      box-shadow: $primary-box-shadow;
+    }
+
+    &:hover {
+      border: none;
+      box-shadow: none;
+      background: $primary-pure;
+    }
+
+    &:active {
+      border: none;
+      box-shadow: none;
+      background: $primary-medium;
+    }
+
+    &--spinner {
+      color: $primary-blacker-bis;
+      background: $primary-lighter;
+    }
+  }
+
+  &__shade {
+    cursor: pointer;
+    background: $primary-dark;
+    color: $primary-light;
+    font-weight: 600;
+
+    &:focus-visible {
+      background: $primary-black-focus-gradient;
+      border: 1px solid $primary-light;
+      box-shadow: $primary-box-shadow;
+    }
+
+    &:hover {
+      border: none;
+      box-shadow: none;
+      background: $primary-darker;
+    }
+
+    &:active {
+      box-shadow: none;
+      background: $primary-dark;
+      color: $primary-lighter;
+    }
+
+    &--spinner {
+      background: $primary-black;
+      color: $primary-lighter;
+    }
+  }
+
+  &__white {
+    cursor: pointer;
+    background: $white-hover-color;
+    color: white;
+    font-weight: 600;
+
+    &:focus-visible {
+      background: $white-hover-color;
+      border: 1px solid $primary-light;
+      box-shadow: $primary-box-shadow;
+    }
+
+    &:hover {
+      border: 1px solid transparent;
+      box-shadow: none;
+      background: $white-hover-color;
+    }
+
+    &:active {
+      border: 1px solid transparent;
+      box-shadow: none;
+      background: $white-pressed-color;
+    }
+
+    &--spinner {
+      background: $white-hover-color;
+      color: white;
+    }
+  }
+
+  &--large,
+  &--medium,
+  &--small {
+    font-family: "TT Hoves DemiBold";
+    font-weight: 600; 
+    border: none;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--large {
+    font-size: 18px;
+    line-height: 28.8px;
+    text-align: center;
+    border-radius: 16px;
+    padding: 12.5px 20px 14.5px 20px;
+  }
+
+  &--medium {
+    font-size: 16px;
+    line-height: 26px;
+    height: 48px;
+    width: 94px;
+    border-radius: 14px;
+  }
+
+  &--small {
+    font-size: 14px;
+    line-height: 17px;
+    height: 40px;
+    width: 82px;
+    border-radius: 12px;
+  }
+  
+  &--loading {
+    background: var(--primary-tanzanite-light, #7950F2) !important;
+  }
+
+  &--disabled {
+    color: $neutral-medium;
+    background-color: $neutral-black;
+    fill: $neutral-medium;
+  }
+}

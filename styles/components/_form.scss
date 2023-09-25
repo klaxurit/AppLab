@@ -1,0 +1,191 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  box-sizing: border-box;
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    width: 80%;
+    border-radius: 40px;
+    padding: 16px;
+    gap: 16px;
+    border: 1px solid var(--neutral-onyx-blacker, #1f1a34);
+    background: var(--primary-tanzanite-black, #16102c);
+    @media (max-width: 319px) {
+      max-width: 319px;
+    }
+  }
+  &__label {
+    padding: 6px 0px 6px 8px;
+    color: var(--neutral-white, #fff);
+    font-family: "TT Hoves Medium";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28.8px;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+    padding: 6px 8px 6px 0px;
+  }
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px 0px 6px;
+    width: 100%;
+    cursor: pointer;
+    max-height: 28px;
+  }
+  &__button {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28.8px;
+    min-height: 56px;
+  }
+  &__SheetContainer {
+    background: var(--primary-tanzanite-black, #16102c) !important;
+    // height: calc(60% - 70px) !important;
+    height: auto !important;
+    border-radius: 40px 40px 0px 0px !important;
+    border: 1px solid var(--neutral-onyx-blacker, #1f1a34) !important;
+    .react-modal-sheet-header {
+      height: 0 !important;
+      padding-top: 12.5px !important;
+      padding-bottom: 12.5px !important;
+      cursor: grab !important;
+      &:active {
+        cursor: grabbing !important;
+      }
+    }
+    .react-modal-sheet-header span:first-child {
+      display: none;
+    }
+    .react-modal-sheet-header span:last-child {
+      transform: none !important;
+    }
+    .react-modal-sheet-drag-indicator {
+      width: 36px !important;
+      height: 5px !important;
+      border-radius: 100px !important;
+      background: var(
+        --overlay-white-020,
+        rgba(255, 255, 255, 0.16)
+      ) !important;
+    }
+  }
+  &__SheetContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 55px;
+    padding-bottom: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  &__SheetBackdrop {
+    background-color: rgba($primary-blacker-bis, 0.64) !important;
+  }
+  .Form__label.DesktopOnly {
+    display: none;
+  }
+  @media #{$md} {
+    justify-content: center;
+    .Form__tabs {
+      display: none;
+    }
+    .Form__label.DesktopOnly {
+      display: flex;
+      gap: 4px;
+      padding: 0;
+      padding-bottom: 2px;
+    }
+    &__box {
+      max-width: 406px;
+    }
+  }
+}
+
+.TxPanel {
+  &__content {
+    padding-bottom: 12px;
+    padding-top: 7px;
+  }
+  &__title {
+    color: var(--neutral-white, #fff);
+    font-family: "TT Hoves Bold";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin: 0;
+    padding: 0px 20px 14px 20px;
+  }
+  &__options {
+    padding-bottom: 8px;
+  }
+  &__option {
+    color: var(--neutral-white, #fff);
+    font-family: "TT Hoves Medium";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28.8px;
+    display: flex;
+    height: 56px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    align-self: stretch;
+    cursor: pointer;
+    border-radius: 8px;
+    &.selected {
+      color: var(--neutral-white, #fff);
+    }
+    &:not(.selected) {
+      color: var(--neutral-onyx-light, #a29fab);
+    }
+  } 
+  @media #{$md} {
+    &__option {
+      padding: 6px 8px;
+      max-height: 20px;
+      background: var(--overlay-white-004, rgba(255, 255, 255, 0.04));
+      &:hover {
+        color: var(--neutral-onyx-lighter, #D0CFD5) !important; 
+        background: var(--overlay-white-002, rgba(255, 255, 255, 0.02)); 
+      }
+      &:active {
+        color: var(--neutral-white, #FFF) !important; 
+        background: var(--overlay-white-004, rgba(255, 255, 255, 0.04)); 
+      }
+      &:not(.selected) {
+        color: var(--neutral-onyx-pure, #868391);
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite; 
+}

@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "TT Hoves Medium";
+  src: url("/src/assets/fonts/TT_Hoves_Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "TT Hoves Regular";
+  src: url("/src/assets/fonts/TT_Hoves_Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "TT Hoves Bold";
+  src: url("/src/assets/fonts/TT_Hoves_Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "TT Hoves DemiBold";
+  src: url("/src/assets/fonts/TT_Hoves_DemiBold.otf") format("opentype");
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $primary-blacker-bis;
+  line-height: 160%;
+  font-size: 16px;
+  font-family: "TT Hoves Regular";
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  @media #{$lg} {
+    font-family: "TT Hoves Regular";
+    font-weight: 400;
+  }
+}
+
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 104px - 144px);
+}
+
+.Footer {
+  z-index: 2;
+  width: 100%;
+  transition: width 0.2s ease-in-out;
+}
+
+.Navbar {
+  z-index: 2;
+  width: 100%;
+  transition: width 0.2s ease-in-out;
+}
+
+.Footer.Footer--shrink {
+  width: calc(100% - 290px); 
+}
+
+.Navbar.Navbar--shrink {
+  width: calc(100% - 290px); 
+}

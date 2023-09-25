@@ -1,0 +1,183 @@
+.Help {
+  z-index: 3;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  &__head {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 20px;
+  }
+  &__headTitle {
+    color: var(--neutral-white, #FFF);
+    font-family: "TT Hoves Bold";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin: 0;
+    padding-bottom: 4px;
+  }
+  &__headDesc {
+    color: var(--neutral-onyx-pure, #868391);
+    font-family: "TT Hoves Regular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25.6px;
+    margin: 0;
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  &__icon {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    background: var(--primary-tanzanite-dark, #241550);
+  }
+  &__title {
+    color: var(--neutral-white, #FFF);
+    font-family: "TT Hoves Medium";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25.6px;
+    margin: 0;
+  }
+  &__desc {
+    color: var(--neutral-onyx-light, #A29FAB);
+    font-family: "TT Hoves Regular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px;
+    margin: 0;
+  }
+  &__stake, &__claim, &__redelegate, &__unstake {
+    display: flex;
+    padding: 14px 16px 16px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+    border-radius: 20px;
+    background: var(--overlay-white-002, rgba(255, 255, 255, 0.02));
+  }
+  &__buttonWrapper {
+    display: flex;
+    padding: 16px;
+    position: sticky;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(31, 26, 52, 1);
+  }
+  &__link {
+    text-decoration: none;
+    text-align: center;
+    color: var(--primary-tanzanite-light, #7950F2);
+    font-family: "TT Hoves DemiBold";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 25.6px;
+    width: 100%;
+  }
+  &__button {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28.8px;
+    width: 100%;
+  }
+  &__SheetContainer {
+    background: var(--primary-tanzanite-black, #16102c) !important;
+    height: calc(100% - 30px) !important;
+    // height: auto !important;
+    border-radius: 40px 40px 0px 0px !important;
+    border: 1px solid var(--neutral-onyx-blacker, #1F1A34) !important; 
+    .react-modal-sheet-header {
+      height: 0 !important;
+      padding-top: 12.5px !important;
+      padding-bottom: 12.5px !important;
+      cursor: grab !important;
+      &:active {
+        cursor: grabbing !important;
+      }
+    }
+    .react-modal-sheet-header span:first-child {
+      display: none;
+    }
+    .react-modal-sheet-header span:last-child {
+      transform: none !important;
+    }
+    .react-modal-sheet-drag-indicator {
+      width: 36px !important;
+      height: 5px !important; 
+      border-radius: 100px !important;
+      background: var(--overlay-white-020, rgba(255, 255, 255, 0.16)) !important;
+    }
+  }
+  &__SheetContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 55px;
+    padding-bottom: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  &__SheetBackdrop {
+    background-color: rgba($primary-blacker-bis, 0.64) !important;
+  }
+}
+
+@media #{$xxl} {
+  .Help__sidebarWrapper {
+    width: 318px;
+  }
+  .Help__sidebar--closed,
+  .Help__sidebar--open {
+    border-radius: 40px;
+    border: 1px solid var(--neutral-onyx-blacker, #1F1A34);
+    background: var(--primary-tanzanite-black, #16102C);
+    padding: 20px;
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    max-height: calc(100vh - 85px); 
+    transition: width 0.3s ease;
+  }
+
+  .Help__sidebar--closed {
+    width: 0;
+    overflow: hidden;
+    border: none;  
+    margin: 0;     
+    padding: 0;
+    transition: width 0.3s ease;
+  }
+
+  .Help__sidebar--open {
+    width: 318px;
+    transition: width 0.3s ease;
+    overflow-y: scroll;
+    .Help__buttonWrapper {
+      position: relative;
+      border: none;
+    }
+  }
+}

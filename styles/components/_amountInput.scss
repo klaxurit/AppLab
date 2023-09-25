@@ -1,0 +1,58 @@
+.AmountInput {
+  border-radius: 24px;
+  border: 1px solid var(--neutral-onyx-darker, #362F50);
+  background: var(--overlay-white-004, rgba(255, 255, 255, 0.04));
+  display: flex;
+  padding: 11px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  &:hover {
+    border: 1px solid $primary-medium;
+  }
+  &:focus-within {
+    border: 1px solid $primary-light;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  &:focus-visible {
+    border-radius: 16px;
+    border: 1px solid var(--primary-tanzanite-light, #7950f2);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0px 0px 0px 6px rgba(121, 80, 242, 0.24);
+  }
+  &__tokenQuantity {
+    font-family: "TT Hoves Regular";
+    color: var(--neutral-onyx-pure, #868391);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px;
+    background: none; 
+    border: none; 
+    outline: none; 
+    width: 100%; 
+    text-align: left;
+    caret-color: $primary-light;
+    &::placeholder {
+      color: var(--neutral-onyx-pure, #868391);
+      font-family: "TT Hoves Regular";
+      font-size: 40px;
+      line-height: 48px;
+      font-style: normal;
+      font-weight: 400;
+    }
+    &:hover::placeholder {
+      color: $neutral-light;
+    }
+    &:focus-visible {
+      color: $white;
+    }
+  }
+  &__tokenValue {
+    color: var(--neutral-onyx-light, #A29FAB);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px;
+  }
+}

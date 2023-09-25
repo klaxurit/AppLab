@@ -1,0 +1,24 @@
+.tabs {
+  outline: none;
+  font-family: 'TT Hoves Medium';
+  color: white;
+  border: 2px solid transparent;
+  // &:hover {
+  //   color: $neutral-lighter;
+  //   background-color: rgba(255, 255, 255, 0.02);
+  // }
+  // &:active {
+  //   border: 2px solid var(--neutral-onyx-blacker, #1F1A34);
+  //   background: rgba(255, 255, 255, 0.04);
+  //   color: white;
+  // }
+  &:focus-within {
+    color: white;
+  }
+  &:focus-visible {
+    border-radius: 16px;
+    border: 2px solid var(--primary-tanzanite-light, #7950F2);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0px 0px 0px 6px rgba(121, 80, 242, 0.24);
+  }
+}

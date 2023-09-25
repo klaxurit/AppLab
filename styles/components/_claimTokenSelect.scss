@@ -1,0 +1,42 @@
+.ClaimTokenSelect {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 16px 10px 12px; 
+  border-radius: 14px;
+  border: 1px solid var(--neutral-onyx-blacker, #1F1A34);
+  background: var(--overlay-white-002, rgba(255, 255, 255, 0.02));
+  cursor: pointer;
+  box-sizing: border-box;
+  max-height: 64px;
+  &__network {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  &__networkLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 24.5px;
+    height: 24.5px;
+    border-radius: 100px;
+    border: 2px solid var(--overlay-white-004, rgba(255, 255, 255, 0.04));
+    img {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+  }
+  &__networkInfo {
+    color: var(--neutral-onyx-pure-bis, #5C586C);
+    font-family: "TT Hoves Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28.8px;
+  }
+}

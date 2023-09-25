@@ -1,0 +1,85 @@
+.SearchBar {
+  cursor: text;
+  display: flex;
+  height: 14px;
+  padding: 12px 8px;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-onyx-darker, #362F50);
+  background: var(--overlay-white-004, rgba(255, 255, 255, 0.04));
+  &:hover {
+    border: 1px solid $primary-medium;
+  }
+  &:focus-within {
+    border: 1px solid $primary-light;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  &:focus-visible {
+    border-radius: 16px;
+    border: 1px solid var(--primary-tanzanite-light, #7950f2);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0px 0px 0px 6px rgba(121, 80, 242, 0.24);
+  }
+  &__iconSearch {
+    stroke: $neutral-pure;
+    width: 14px;
+  }
+  &__input {
+    font-family: "TT Hoves Medium";
+    font-weight: 500;
+    color: white;
+    outline: none;
+    background: none;
+    border: none;
+    padding: 5px 10px 5px 0px;
+    margin: 0;
+    caret-color: $primary-light;
+    font-size: 18px;
+    flex: 1;
+    width: 100%;
+    &::placeholder {
+    font-family: "TT Hoves Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28.8px;
+    }
+    &:hover::placeholder {
+      color: $neutral-light;
+    }
+    &:focus-visible {
+      color: $white;
+    }
+  }
+  &__iconParams {
+    display: block;
+    color: transparent;
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  &__icon {
+    display: none;
+    padding: 0;
+    border-radius: 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 24px;
+    height: 24px;
+  }
+  &__iconSlash {
+    color: var(--neutral-onyx-pure, #868391);
+    text-align: center;
+    font-family: "TT Hoves DemiBold";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 19.2px;
+  }
+}

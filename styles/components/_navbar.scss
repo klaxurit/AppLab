@@ -1,0 +1,44 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-blacker-bis;
+  color: white;
+  height: 72px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  &__logosWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &__btnWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    svg {
+      cursor: pointer;
+      stroke: #5C586C;
+      &:hover {
+        stroke: rgba(134, 131, 145, 1); // Modifiez stroke, pas fill
+      }
+    }
+  }
+  &__logo {
+    width: 32px;
+    height: 32px;
+  }
+  &__desktopLogo {
+    display: none;
+  }
+  &__button {
+    padding: 10.5px 14px 12.5px 14px;
+    margin: 0;
+  }
+  @media #{$md} {
+    padding: 16px 124px;
+    &__desktopLogo {
+      display: block;
+    }
+  }
+}

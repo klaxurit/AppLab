@@ -1,0 +1,70 @@
+.NetworksList {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  &__modal {
+    position: absolute;
+    display: flex;
+    min-width: 440px;
+    max-height: 650px;
+    min-height: 260px;
+    padding: 16px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 40px;
+    border: 1px solid var(--neutral-onyx-blacker, #1F1A34);
+    background: var(--primary-tanzanite-black, #16102C);
+  }
+  &__modalBody {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  &__modalHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  &__iconAndTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    svg {
+      cursor: pointer;
+      padding: 3px;
+    }
+  }
+  &__title {
+    color: var(--neutral-white, #FFF);
+    text-align: center;
+    font-family: "TT Hoves Bold";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28.8px;
+    margin: 0;
+  }
+  &__blankIcon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+  }
+  &__searchBarWrapper {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
