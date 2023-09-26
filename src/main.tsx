@@ -1,4 +1,4 @@
-import "./polyfill.ts";
+import "./polyfills"
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../styles/index.scss"
@@ -11,11 +11,7 @@ import { Decimal } from "@cosmjs/math";
 import { GasPrice } from "@cosmjs/stargate";
 import { wallets as keplrWallets } from "@cosmos-kit/keplr";
 import { assets, chains } from "chain-registry";
-
-
-
 import App from "./App";
-
 
 const router = createBrowserRouter([
   {
@@ -29,7 +25,6 @@ const router = createBrowserRouter([
     //   },
     // ]
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
