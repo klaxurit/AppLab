@@ -6,6 +6,7 @@ import helpReducer from "./store/helpSlice";
 import deviceReducer from "./store/deviceSlice";
 import formReducer from "./store/formSlice";
 import txStateReducer from "./store/txStateSlice";
+import walletReducer from './store/walletSlice'; 
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     device: deviceReducer,
     form: formReducer,
     txState: txStateReducer,
+    wallet: walletReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(networkApi.middleware),
@@ -28,5 +30,6 @@ export type RootState = {
   device: ReturnType<typeof deviceReducer>;
   txState: ReturnType<typeof txStateReducer>;
   form: ReturnType<typeof formReducer>;
+  wallet: ReturnType<typeof walletReducer>;
 };
 export type AppDispatch = typeof store.dispatch;

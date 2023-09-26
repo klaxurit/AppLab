@@ -6,10 +6,13 @@ import { RootState } from "../../store";
 // import { useChain } from "@cosmos-kit/react";
 import { closeSidebar } from "../../store/helpSlice";
 import { useWalletClient } from "@cosmos-kit/react";
+import { setStatus, setData } from '../../store/walletSlice';
 
 const Navbar: React.FC = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.help.isSidebarOpen);
   const dispatch = useDispatch();
+  const walletStatus = useSelector((state: RootState) => state.wallet.status);
+  const walletData = useSelector((state: RootState) => state.wallet.data);
 
   const handleCloseSidebar = () => {
     dispatch(closeSidebar());
@@ -17,13 +20,15 @@ const Navbar: React.FC = () => {
   const { status, client } = useWalletClient("keplr-extension"); // or comostation-extension, leap-extension, etc.
 
   useEffect(() => {
+    dispatch(setStatus(status));
+    console.log("ici", walletStatus, walletData)
     if (status === "Done") {
-      client.enable?.(["cosmoshub-4", "osmosis-1", "juno-1"]);
-      client.getAccount?.("juno-4").then((account) => console.log(account));
-      client.getAccount?.("osmosis-1").then((account) => console.log(account));
-      client
-        .getAccount?.("cosmoshub-4")
-        .then((account) => console.log(account));
+      client?.enable?.(["cosmoshub-4", "osmosis-1", "juno-1"]);
+      client?.getAccount?.("juno-4").then((account) => dispatch(setData(account)));
+      client?.getAccount?.("osmosis-1").then((account) => dispatch(setData(account)));
+      client?.getAccount?.("cosmoshub-4")
+        .then((account) => dispatch(setData(account)));
+      console.log("la", walletStatus, walletData)
     }
   }, [status]);
 
