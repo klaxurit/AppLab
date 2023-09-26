@@ -4,7 +4,7 @@ import { ConnectButton } from './ConnectButton';
 import TxAction from './TxAction';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { ClaimTokenSelect } from './ClaimTokenSelect';
+import { TokenSelect } from './TokenSelect';
 
 const Form: React.FC = () => {
   const selectedOption = useSelector((state: RootState) => state.form.selectedOption);
@@ -19,9 +19,9 @@ const Form: React.FC = () => {
             <ConnectButton/>
           </>
         }
-        {selectedOption === "Claim" &&
+        {(selectedOption === "Claim" || selectedOption === "Redelegate" || selectedOption === "Undelegate") &&
           <>
-            <ClaimTokenSelect />
+            <TokenSelect />
             <ConnectButton />
           </>
         }
