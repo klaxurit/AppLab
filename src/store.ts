@@ -20,7 +20,9 @@ export const store = configureStore({
     wallet: walletReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(networkApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(networkApi.middleware),
 });
 
 export type RootState = {
