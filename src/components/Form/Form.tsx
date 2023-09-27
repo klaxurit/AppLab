@@ -16,13 +16,13 @@ const Form: React.FC = () => {
         {selectedOption === "Stake" && 
           <>
             <AmountInput />
-          <ConnectButton className="Form__button btn--medium btn__shade" label="Connect Wallet" />
+            <ConnectButton className="Form__button btn--medium btn__shade" label="Connect Wallet" />
           </>
         }
         {(selectedOption === "Claim" || selectedOption === "Redelegate" || selectedOption === "Undelegate") &&
           <>
             <TokenSelect />
-          <ConnectButton className="Form__button btn--medium btn__shade" label="Connect Wallet" />
+            <ConnectButton className="Form__button btn--medium btn__shade" label="Connect Wallet" showWalletLogo={false} />
           </>
         }
       </div>

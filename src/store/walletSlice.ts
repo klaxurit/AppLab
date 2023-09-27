@@ -17,8 +17,11 @@ const walletSlice = createSlice({
     setStatus: (state, action: PayloadAction<string>) => {
       state.status = action.payload;
     },
-    setData: (state, action: PayloadAction<any>) => {
-      state.data = action.payload;
+    setData: (state, action: PayloadAction<{ network: string, data: any }>) => {
+      if (!state.data) {
+        state.data = {};
+      }
+      state.data[action.payload.network] = action.payload.data;
     },
   },
 });

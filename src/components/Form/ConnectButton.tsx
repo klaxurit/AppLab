@@ -1,22 +1,42 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import walletLogo from "../../assets/images/wallet_logo.svg";
 
 interface ConnectButtonProps {
   className?: string;
   label: string;
+  walletAddress?: string;
+  showWalletLogo?: boolean;
 }
 
-export const ConnectButton: React.FC<ConnectButtonProps> = ({ className, label }) => {
+export const ConnectButton: React.FC<ConnectButtonProps> = ({ className, label, walletAddress, showWalletLogo }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const handleButtonClick = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+  const walletStatus = useSelector((state: RootState) => state.wallet.status);
+  const walletData = useSelector((state: RootState) => state.wallet.data);
+  const formatWalletAddress = (address: string) => {
+    const start = address.substr(0, 11);
+    const end = address.substr(-7);
+    return `${start}...${end}`;
   };
+
+  let displayLabel = label;
+
+  if (walletStatus === "Done" && walletAddress) {
+    displayLabel = formatWalletAddress(walletAddress);
+  }
+
+  useEffect(() => {
+    console.log("ISLOADING", walletStatus)
+    if (walletStatus === "Pending"){
+      setIsLoading(true);
+    }
+    setIsLoading(false)
+  }, [walletStatus]);
+
   return(
     <button
-      onClick={handleButtonClick}
       className={`${isLoading ? 'btn--loading' : ''} ${className}`}
     >
       {isLoading ? (
@@ -25,7 +45,10 @@ export const ConnectButton: React.FC<ConnectButtonProps> = ({ className, label }
           <path d="M23.3334 13.9998C23.3334 19.1545 19.1547 23.3332 14 23.3332C8.84536 23.3332 4.66669 19.1545 4.66669 13.9998C4.66669 8.84518 8.84536 4.6665 14 4.6665" stroke="white" strokeWidth="3.2" />
         </svg>
       ) : (
-        label
+        <span className="ConnectButton__walletLogo">
+          {walletData && showWalletLogo && <img src={walletLogo} alt="wallet logo" />}
+          {displayLabel}
+        </span>
       )}
     </button>
   )

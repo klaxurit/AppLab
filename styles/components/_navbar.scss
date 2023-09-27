@@ -34,6 +34,7 @@
   &__button {
     padding: 10.5px 14px 12.5px 14px;
     margin: 0;
+    width: auto;
   }
   @media #{$md} {
     padding: 16px 124px;

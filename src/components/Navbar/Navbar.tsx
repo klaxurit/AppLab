@@ -1,37 +1,19 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
-// import { useChain } from "@cosmos-kit/react";
 import { closeSidebar } from "../../store/helpSlice";
-import { useWalletClient } from "@cosmos-kit/react";
-import { setStatus, setData } from '../../store/walletSlice';
+
 import { ConnectButton } from "../Form/ConnectButton";
 
 const Navbar: React.FC = () => {
   const isSidebarOpen = useSelector((state: RootState) => state.help.isSidebarOpen);
+  const walletAddress = useSelector((state: RootState) => state.wallet.data?.address);
   const dispatch = useDispatch();
-  const walletStatus = useSelector((state: RootState) => state.wallet.status);
-  const walletData = useSelector((state: RootState) => state.wallet.data);
 
   const handleCloseSidebar = () => {
     dispatch(closeSidebar());
   };
-  const { status, client } = useWalletClient("keplr-extension"); // or comostation-extension, leap-extension, etc.
-
-  useEffect(() => {
-    dispatch(setStatus(status)); 
-    console.log("ici", walletStatus, walletData)
-    if (status === "Done") {
-      client?.enable?.(["cosmoshub-4", "osmosis-1", "juno-1"]);
-      client?.getAccount?.("juno-4").then((account) => dispatch(setData(account)));
-      client?.getAccount?.("osmosis-1").then((account) => dispatch(setData(account)));
-      client?.getAccount?.("cosmoshub-4")
-        .then((account) => dispatch(setData(account)));
-      console.log("la", walletStatus, walletData)
-    }
-  }, [status]);
 
   return (
     <div className={`Navbar ${isSidebarOpen ? 'Navbar--shrink' : ''}`}>
@@ -49,15 +31,7 @@ const Navbar: React.FC = () => {
         </svg>
       </div>
       <div className="Navbar__btnWrapper">
-        {status === "Done" && (
-          <ConnectButton className="Navbar__button btn--small btn__shade" label="Connect"/>
-        )}
-        {status === "Init" && (
-          <ConnectButton label="Connect" />
-        )}
-        {status === "Pending" && (
-          <ConnectButton label="Connect" />
-        )}
+        <ConnectButton className="Navbar__button btn--small btn__shade" label="Connect" walletAddress={walletAddress} showWalletLogo={true} />
         {isSidebarOpen && (
           <svg className="Navbar__iconCloseSidebar" onClick={handleCloseSidebar} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.8423 10.0018H16.8389L10.6621 3.82501L16.8389 10.0054L10.6621 16.1822M9.3423 10.0018H9.33889L3.16211 3.82501L9.33889 10.0054L3.16211 16.1822" strokeWidth="2" />
